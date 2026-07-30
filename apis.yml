@@ -1,7 +1,26 @@
 aid: mainframe
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mainframe.png
 name: Mainframe
-description: Mainframe is a company surfaced as a portfolio company of a16z, techstars and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Mainframe (Mainframe Group, Inc.) is a software development and marketing
+  services company building products for the decentralized finance (DeFi) ecosystem.
+  It offers three service areas — Risk Management (protocol parameter optimization
+  and stability), Development (DeFi and blockchain financial solutions), and Marketing
+  (brand reach and audience engagement) — and has produced projects including Hifi,
+  Pooled NFT, Sheet Heads, and Crown Ribbon. It was surfaced as a portfolio company
+  of a16z and Techstars and added to the API Evangelist network. As of this enrichment
+  pass Mainframe publishes a Webflow marketing site only, with no public API, developer
+  portal, documentation, or SDKs.
 url: https://raw.githubusercontent.com/api-evangelist/mainframe/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,9 +31,15 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- DeFi
+- Blockchain
+- Web3
+- NFT
+- Software Development
+- Marketing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,5 +47,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/mainframe-domain-security.yml
 - type: Website
   url: https://mainframe.co/
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
