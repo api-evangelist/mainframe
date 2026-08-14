@@ -12,15 +12,22 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/mainframe.png
 name: Mainframe
-description: Mainframe (Mainframe Group, Inc.) is a software development and marketing
-  services company building products for the decentralized finance (DeFi) ecosystem.
-  It offers three service areas — Risk Management (protocol parameter optimization
-  and stability), Development (DeFi and blockchain financial solutions), and Marketing
-  (brand reach and audience engagement) — and has produced projects including Hifi,
-  Pooled NFT, Sheet Heads, and Crown Ribbon. It was surfaced as a portfolio company
-  of a16z and Techstars and added to the API Evangelist network. As of this enrichment
-  pass Mainframe publishes a Webflow marketing site only, with no public API, developer
-  portal, documentation, or SDKs.
+description: >-
+  Mainframe (Mainframe Group, Inc.) is a software development and marketing services company
+  building products for the decentralized finance (DeFi) ecosystem. It offers three service areas
+  — Risk Management (protocol parameter optimization and stability), Development (DeFi and
+  blockchain financial solutions), and Marketing (brand reach and audience engagement) — and has
+  produced projects including Hifi, Pooled NFT, Sheet Heads, and Crown Ribbon. It was surfaced as a
+  portfolio company of a16z and Techstars and added to the API Evangelist network. Mainframe itself
+  publishes only a three-page Webflow marketing site, with no API host and no developer portal
+  (api., docs. and developer.mainframe.co do not resolve), and its MainframeHQ GitHub organization
+  has zero public repositories. Its developer surface lives under its Hifi product instead — the
+  docs.hifi.finance protocol documentation (footer copyright "Mainframe Group Inc."), the
+  github.com/hifi-finance organization, five first-party npm packages in the @hifi scope, and a
+  GraphQL subgraph schema for the Hifi lending protocol. That surface is a smart-contract SDK
+  rather than an HTTP API — there is no REST API and no OpenAPI anywhere — and it has gone quiet,
+  with the newest package release dated 2024-01-12 and the documented GraphQL endpoint on The
+  Graph's retired hosted service returning HTTP 404.
 url: https://raw.githubusercontent.com/api-evangelist/mainframe/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -31,7 +38,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-13'
 tags:
 - Company
 - DeFi
@@ -40,7 +47,38 @@ tags:
 - NFT
 - Software Development
 - Marketing
-apis: []
+- Lending
+- GraphQL
+- Smart Contracts
+- Subgraph
+- Ethereum
+apis:
+- aid: mainframe:hifi-subgraph
+  name: Hifi Protocol Subgraph
+  description: >-
+    The Graph subgraph that indexes the Hifi fixed-rate, fixed-term lending protocol — vaults,
+    collateral and debt positions, listed bonds and collaterals, AMM pools and swaps — and serves
+    them over GraphQL. This is the only machine-readable contract Mainframe publishes; the schema
+    is captured verbatim in graphql/. WARNING: the endpoint Hifi's own documentation names is on
+    The Graph's retired hosted service and returned HTTP 404 when probed 2026-08-13, and the docs
+    name no replacement, so the surface is documented but not currently callable.
+  humanURL: https://docs.hifi.finance/protocol/developers/data
+  baseURL: https://thegraph.com/hosted-service/subgraph/hifi-finance/hifi
+  tags:
+  - GraphQL
+  - Subgraph
+  - The Graph
+  - DeFi
+  - Lending
+  properties:
+  - type: Documentation
+    url: https://docs.hifi.finance/protocol/developers/data
+  - type: Repository
+    url: https://github.com/hifi-finance/hifi-subgraph
+  - type: GraphQL
+    url: graphql/mainframe-hifi-graphql.md
+  - type: Schema
+    url: graphql/mainframe-hifi-subgraph-schema.graphql
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -51,8 +89,18 @@ common:
   url: security/mainframe-domain-security.yml
 - type: Website
   url: https://mainframe.co/
+- type: Packages
+  url: packages/mainframe-packages.yml
+- type: SDKs
+  url: packages/mainframe-packages.yml
+- type: LLMsTxt
+  url: llms/mainframe-llms.txt
+- type: Documentation
+  url: https://docs.hifi.finance/protocol/introduction
+- type: GitHubOrganization
+  url: https://github.com/hifi-finance
 x-enrichment:
-  date: '2026-07-20'
-  status: minimal
-  artifacts_added: 1
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 7
   pass: local-v1
