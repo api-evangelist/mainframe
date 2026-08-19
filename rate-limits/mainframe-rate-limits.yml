@@ -1,0 +1,27 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.hifi.finance/protocol/developers/data and the full docs.hifi.finance sitemap,
+  probed 2026-08-13
+limit_count: 0
+summary: >-
+  No rate limits are published for any Mainframe surface. The only API-shaped surface is the Hifi
+  Protocol GraphQL subgraph, and its documented endpoint
+  (https://thegraph.com/hosted-service/subgraph/hifi-finance/hifi) returns HTTP 404, so no live
+  response headers could be observed either. There is nothing to record and no header contract an
+  agent could rely on.
+limits: []
+response_headers: []
+exhaustion_status: null
+findings:
+- id: endpoint-gone-no-observable-headers
+  detail: >-
+    Rate-limit headers would normally be read off a live unauthenticated response. The documented
+    endpoint no longer resolves, so probing for RateLimit-* / X-RateLimit-* / Retry-After was not
+    possible.
+  evidence:
+  - url: https://thegraph.com/hosted-service/subgraph/hifi-finance/hifi
+    status: 404
+pointer_rationale: >-
+  No common[] RateLimits pointer is emitted. limit_count is 0 — this file records a verified
+  absence, and a pointer would assert the provider publishes limits.

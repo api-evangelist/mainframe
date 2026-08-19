@@ -1,0 +1,130 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://registry.npmjs.org/ metadata endpoints for each package, cross-checked against
+  https://docs.hifi.finance/protocol/developers/sdk and https://github.com/hifi-finance
+ownership_note: >-
+  Mainframe Group, Inc. distributes no packages under a "mainframe" name — the npm scope @mainframe
+  is empty (0 packages) and the MainframeHQ GitHub organization publishes 0 public repositories.
+  The packages below ship under the @hifi npm scope and the github.com/hifi-finance organization.
+  They are attributed to Mainframe because mainframe.co lists Hifi as one of its four portfolio
+  products, docs.hifi.finance carries the footer "Copyright (c) 2025 Mainframe Group Inc.", the
+  MainframeHQ GitHub organization records its Twitter handle as HifiFinance, and the hifi-finance
+  organization holds the repositories for three of Mainframe's four named portfolio products
+  (hifi, pooled-nft, spreadsheet/Sheet Heads). This is NOT the separate catalog entry `hifi`
+  (hifi.com / production.hifibridge.com), which is a different company.
+summary: >-
+  Five first-party npm packages, all Solidity contracts plus generated TypeChain/ethers.js
+  bindings — a smart-contract SDK, not an HTTP client library. There is no REST/HTTP SDK because
+  there is no REST API. Every package is stale: the most recent release across the whole scope is
+  2024-01-12, and four of the five backing GitHub repositories are ARCHIVED (read-only).
+package_count: 5
+official_count: 5
+registries:
+- npm
+packages:
+- name: '@hifi/protocol'
+  registry: npm
+  url: https://www.npmjs.com/package/@hifi/protocol
+  official: true
+  language: solidity
+  kind: smart-contract-sdk
+  version: 1.12.0
+  published: '2024-01-12'
+  first_published: '2021-02-12'
+  release_count: 17
+  license: BUSL-1.1
+  repository: https://github.com/hifi-finance/hifi
+  install: yarn add @hifi/protocol
+  description: The core Hifi fixed-rate, fixed-term lending protocol.
+  note: >-
+    Requires Solidity v0.8.4+ and ethers.js; the docs state the packages cannot be used with
+    web3.js. Last release 2024-01-12 — over two years stale as of this pass.
+- name: '@hifi/flash-swap'
+  registry: npm
+  url: https://www.npmjs.com/package/@hifi/flash-swap
+  official: true
+  language: solidity
+  kind: smart-contract-sdk
+  version: 1.13.0
+  published: '2024-01-12'
+  first_published: '2021-06-30'
+  release_count: 16
+  license: LGPL-3.0-or-later
+  repository: https://github.com/hifi-finance/hifi
+  install: yarn add @hifi/flash-swap
+  description: >-
+    Flash swap implementations for liquidating underwater accounts, targeting Uniswap V2 and forks.
+  note: >-
+    Backing standalone repo github.com/hifi-finance/hifi-flash-swap is ARCHIVED (read-only);
+    development moved into the hifi monorepo.
+- name: '@hifi/amm'
+  registry: npm
+  url: https://www.npmjs.com/package/@hifi/amm
+  official: true
+  language: solidity
+  kind: smart-contract-sdk
+  version: 1.11.0
+  published: '2023-01-04'
+  first_published: '2021-06-28'
+  release_count: 20
+  license: BUSL-1.1
+  repository: https://github.com/hifi-finance/hifi
+  install: yarn add @hifi/amm
+  description: Dedicated AMM for market-making hTokens, based on the Yield Space design.
+  note: >-
+    Backing standalone repo github.com/hifi-finance/hifi-amm is ARCHIVED. Last release 2023-01-04.
+- name: '@hifi/proxy-target'
+  registry: npm
+  url: https://www.npmjs.com/package/@hifi/proxy-target
+  official: true
+  language: solidity
+  kind: smart-contract-sdk
+  version: 1.11.0
+  published: '2023-01-04'
+  first_published: '2021-08-01'
+  release_count: 14
+  license: LGPL-3.0-or-later
+  repository: https://github.com/hifi-finance/hifi
+  install: yarn add @hifi/proxy-target
+  description: DSProxy target contract with stateless scripts for the Hifi protocol.
+  note: >-
+    Backing standalone repo github.com/hifi-finance/hifi-proxy-target is ARCHIVED. Last release
+    2023-01-04.
+- name: '@hifi/react-tos-modal'
+  registry: npm
+  url: https://www.npmjs.com/package/@hifi/react-tos-modal
+  official: true
+  language: typescript
+  kind: ui-component
+  version: 1.1.0
+  published: '2022-10-12'
+  release_count: null
+  license: null
+  repository: null
+  description: An interactive React modal for displaying terms of service.
+  note: >-
+    Published in the @hifi scope but not listed on the Hifi SDK docs page and not a protocol
+    package; the registry record carries no repository or license field. version/published read
+    from registry.npmjs.org 2026-08-13.
+absent:
+- registry: npm
+  query: 'scope:mainframe'
+  result: 0 packages
+  note: There is no @mainframe npm scope.
+- registry: github
+  query: github.com/MainframeHQ
+  result: 0 public repositories
+  note: >-
+    The MainframeHQ organization is real (created 2013-06-05, org record last updated 2023-09-22,
+    email contact@mainframe.co, blog https://www.mainframe.co/) but ships no public code.
+- registry: pypi/rubygems/crates.io/nuget/maven/pkg.go.dev
+  result: not checked individually
+  note: >-
+    The published SDK is Solidity + TypeScript only; the docs name npm as the sole distribution
+    channel, so no other language registry was searched.
+currency_finding: >-
+  The newest first-party release anywhere in the scope is 2024-01-12, and the documented GraphQL
+  data endpoint (The Graph hosted service) returns 404 as of 2026-08-13. The SDK docs themselves
+  warn the packages are "considered alpha software and may contain bugs or change significantly
+  between patch versions."

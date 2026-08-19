@@ -1,0 +1,228 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  live GET of /.well-known/*, /llms.txt and common spec paths on every Mainframe host, plus the
+  Hifi hosts Mainframe operates (mainframe.co lists Hifi as its own portfolio product and
+  docs.hifi.finance carries the footer "Copyright (c) 2025 Mainframe Group Inc.")
+summary: >-
+  Mainframe publishes NO /.well-known/ discovery surface and no REST/OpenAPI contract of any
+  kind, on any of its hosts. www.mainframe.co is a three-page Webflow marketing site whose hosting answers HTTP 200
+  with the identical 7,792-byte homepage HTML for EVERY unknown path — a soft-200 catch-all. Every
+  probe below returned 200 with `content-type: text/html`, `<title>Mainframe</title>` and byte-for-byte
+  the same body as the homepage. NONE of them is a document, so NONE is a hit, and no WellKnown,
+  SecurityTxt, LLMsTxt-from-provider or AgentCard pointer is emitted. Recorded here so a future
+  round does not re-litigate a 200 that carries nothing.
+soft_200_catch_all:
+  confirmed: true
+  control_path: /this-path-does-not-exist-xyz
+  control_status: 200
+  control_bytes: 7792
+  control_title: Mainframe
+  detail: >-
+    A deliberately nonsense path returns the same 200 / 7,792 bytes / <title>Mainframe</title> as
+    every /.well-known/ path, which is how the catch-all was proven rather than assumed.
+hosts:
+- host: https://www.mainframe.co
+  note: >-
+    Webflow-hosted marketing site behind Cloudflare, last published 2024-09-16. Real pages are
+    limited to /, /contact-mainframe and /portfolio/crownribbon; everything else is the catch-all.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: soft-200 homepage shell, not a security.txt
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: soft-200 homepage shell
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: soft-200 homepage shell
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: soft-200 homepage shell
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: soft-200 homepage shell
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: soft-200 homepage shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: >-
+      Does NOT parse as a JSON object and carries none of name/url/version/protocolVersion/
+      capabilities/skills. No A2A agent card. No AgentCard pointer emitted.
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: legacy pre-0.3 agent-card path; same soft-200 shell
+  - path: /llms.txt
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: >-
+      Mainframe does not publish llms.txt. The generated llms/mainframe-llms.txt in this repo is
+      an API Evangelist generation, not a provider document.
+  - path: /openapi.json
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+  - path: /openapi.yaml
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+  - path: /swagger.json
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+  - path: /api-docs
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+  - path: /robots.txt
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: no robots.txt is actually served; the catch-all answers instead
+  - path: /sitemap.xml
+    status: 200
+    content_type: text/html
+    bytes: 7792
+    hit: false
+    note: no sitemap is actually served; the catch-all answers instead
+- host: https://hifi.finance
+  note: >-
+    The Hifi Protocol interface, a React SPA. Same soft-200 failure mode as mainframe.co: every
+    path below returned 200 with the identical 1,741-byte SPA shell, including the control path.
+  control:
+    path: /this-does-not-exist-xyz
+    status: 200
+    bytes: 1741
+  documents:
+  - path: /llms.txt
+    status: 200
+    bytes: 1741
+    hit: false
+    note: soft-200 SPA shell
+  - path: /.well-known/security.txt
+    status: 200
+    bytes: 1741
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 200
+    bytes: 1741
+    hit: false
+    note: HTML, not a JSON AgentCard. No AgentCard pointer emitted.
+  - path: /.well-known/agent.json
+    status: 200
+    bytes: 1741
+    hit: false
+  - path: /.well-known/api-catalog
+    status: 200
+    bytes: 1741
+    hit: false
+  - path: /.well-known/openid-configuration
+    status: 200
+    bytes: 1741
+    hit: false
+  - path: /openapi.json
+    status: 200
+    bytes: 1741
+    hit: false
+- host: https://docs.hifi.finance
+  note: >-
+    Docusaurus documentation site for the Hifi Protocol, copyright "Mainframe Group Inc." 2025.
+    This host returns HONEST 404s — the only Mainframe-controlled host that does. It publishes a
+    real /sitemap.xml (HTTP 200) but no llms.txt and no /.well-known/ documents.
+  documents:
+  - path: /sitemap.xml
+    status: 200
+    content_type: application/xml
+    hit: true
+    note: >-
+      A real sitemap listing the protocol docs tree (/protocol/introduction,
+      /protocol/developers/sdk, /protocol/developers/data, /protocol/developers/network-addresses,
+      guides, overview, governance, blog). Not a /.well-known/ document, so it earns no pointer,
+      but it is how the developer surface below was enumerated.
+  - path: /llms.txt
+    status: 404
+    hit: false
+  - path: /.well-known/security.txt
+    status: 404
+    hit: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    hit: false
+  - path: /.well-known/agent.json
+    status: 404
+    hit: false
+  - path: /.well-known/api-catalog
+    status: 404
+    hit: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    hit: false
+  - path: /openapi.json
+    status: 404
+    hit: false
+    note: >-
+      No OpenAPI anywhere. The only machine-readable contract Mainframe publishes is the Hifi
+      subgraph GraphQL SDL, saved to ../graphql/mainframe-hifi-subgraph-schema.graphql.
+dns:
+  note: >-
+    The conventional API/docs hostnames do not exist. Probed 2026-08-13; every lookup returned
+    zero records (NXDOMAIN), so there is no API host to probe for a contract.
+  nxdomain:
+  - api.mainframe.co
+  - docs.mainframe.co
+  - developer.mainframe.co
+  - dev.mainframe.co
+  - app.mainframe.co
+code:
+  github_org: https://github.com/MainframeHQ
+  public_repos: 0
+  org_updated: '2023-09-22'
+  note: >-
+    The GitHub organization is real and self-identifies as Mainframe (blog https://www.mainframe.co/,
+    email contact@mainframe.co, twitter HifiFinance) but publishes ZERO public repositories.
+  npm_scope_mainframe: 0 packages
+  engineering_org: https://github.com/hifi-finance
+  engineering_org_repos: 24
+  engineering_org_note: >-
+    Mainframe's actual public code lives in the hifi-finance organization, which holds repositories
+    for THREE of the four portfolio products named on mainframe.co — hifi (the lending protocol
+    monorepo, last pushed 2026-03-18), pooled-nft, and spreadsheet (Sheet Head NFTs). Searched for
+    .proto, AsyncAPI and OpenAPI documents across the org: none found. The only machine-readable
+    contract is hifi-subgraph/schema.graphql.
+pointers_emitted: []
+pointer_rationale: >-
+  No common[] WellKnown / SecurityTxt / AgentCard pointer is written. A pointer asserts the
+  PROVIDER serves that surface; here every 200 is a hosting catch-all returning marketing HTML.
+  Recording the absence is the finding.

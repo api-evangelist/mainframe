@@ -1,0 +1,34 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.mainframe.co/ (full 3-page site enumerated from its HTML: /, /contact-mainframe,
+  /portfolio/crownribbon) and https://docs.hifi.finance/ (sitemap.xml enumerated 2026-08-13)
+plan_count: 0
+summary: >-
+  Mainframe publishes no pricing page, no plans, and no rate card. The entire mainframe.co site is
+  three pages and none of them is a pricing page — the only commercial call to action is the
+  contact form at /contact-mainframe. Mainframe sells services (risk management, development,
+  marketing) on a contact-us basis. Its Hifi Protocol product is an on-chain lending protocol whose
+  economics are protocol fees and DAO governance rather than subscription tiers; the docs sitemap
+  at docs.hifi.finance contains no pricing or plans page either.
+plans: []
+findings:
+- id: no-pricing-page
+  detail: >-
+    www.mainframe.co has exactly three real pages. Every other path returns a soft-200 copy of the
+    homepage, so an absent /pricing cannot be distinguished by status code — it was confirmed by
+    enumerating the hrefs in the homepage HTML, which link only to /, /contact-mainframe,
+    /portfolio/crownribbon, and the three external portfolio sites.
+  evidence:
+  - url: https://www.mainframe.co/
+    status: 200
+- id: no-plans-on-product-docs
+  detail: >-
+    docs.hifi.finance/sitemap.xml lists protocol, guides, overview, governance, developers and blog
+    sections. There is no pricing, plans, or billing page.
+  evidence:
+  - url: https://docs.hifi.finance/sitemap.xml
+    status: 200
+pointer_rationale: >-
+  No common[] Plans pointer is emitted. plan_count is 0 — this file records a verified ABSENCE of
+  published pricing, and a pointer would assert the provider publishes plans.
