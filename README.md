@@ -64,6 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Mainframe is a company surfaced as a portfolio company of a16z, techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Mainframe (Mainframe Group, Inc.) is a software development and marketing services company building products for the decentralized finance (DeFi) ecosystem. It offers three service areas — Risk Management (protocol parameter optimization and stability), Development (DeFi and blockchain financial solutions), and Marketing (brand reach and audience engagement) — and has produced projects including Hifi, Pooled NFT, Sheet Heads, and Crown Ribbon. It was surfaced as a portfolio company of a16z and Techstars and added to the API Evangelist network. Mainframe itself publishes only a three-page Webflow marketing site, with no API host and no developer portal (api., docs. and developer.mainframe.co do not resolve), and its MainframeHQ GitHub organization has zero public repositories. Its developer surface lives under its Hifi product instead — the docs.hifi.finance protocol documentation (footer copyright "Mainframe Group Inc."), the github.com/hifi-finance organization, five first-party npm packages in the @hifi scope, and a GraphQL subgraph schema for the Hifi lending protocol. That surface is a smart-contract SDK rather than an HTTP API — there is no REST API and no OpenAPI anywhere — and it has gone quiet, with the newest package release dated 2024-01-12 and the documented GraphQL endpoint on The Graph's retired hosted service returning HTTP 404.
 
-Backed by: a16z, techstars — https://mainframe.co/
+**Areas:** Company · DeFi · Blockchain · Web3 · NFT · Software Development · Marketing · Lending · GraphQL · Smart Contracts · Subgraph · Ethereum
+
+## Mainframe on APIs.io
+
+Everything profiled for Mainframe is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mainframe/](https://apis.io/providers/mainframe/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Hifi Protocol Subgraph](https://apis.io/apis/mainframe/hifi-subgraph/) — The Graph subgraph that indexes the Hifi fixed-rate, fixed-term lending protocol — vaults, collateral and debt positions, listed bonds and collaterals, AMM…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Mainframe / Hifi Protocol GraphQL](https://apis.io/graphqls/mainframe/mainframe-hifi-graphql/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Mainframe Domain Security](https://apis.io/security/mainframe/mainframe-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Mainframe Plans Pricing](https://apis.io/plans/mainframe/mainframe-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Mainframe Rate Limits](https://apis.io/rate-limits/mainframe/mainframe-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://mainframe.co/)
+- [Documentation](https://docs.hifi.finance/protocol/introduction)
+- [Blog](https://mainframe.co/blog/)
+- [GitHub](https://github.com/hifi-finance)
+
+## API Evangelist rating
+
+**Kin Score 17.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 34.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 0.0 |
+
+**Agent readiness 18.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mainframe/](https://apis.io/providers/mainframe/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mainframe: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mainframe/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
